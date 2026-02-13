@@ -182,6 +182,9 @@ class DataPrepConfig:
     ray_data_max_tasks_in_flight: int = 2
     """Max tasks in flight per actor (pipelining depth)"""
 
+    num_actors: int | None = None
+    """Ray actors for parallel processing (None = auto)"""
+
 
 def run_data_prep(
     config: DataPrepConfig, *, artifact_class: type = PretrainBlendsArtifact
@@ -253,7 +256,10 @@ def run_data_prep(
                 "*.egg-info/",
             ]
         }
-        ray.init(address="auto", ignore_reinit_error=True, runtime_env=runtime_env)
+        #ray.init(address="auto", ignore_reinit_error=True, runtime_env=runtime_env)
+        ray_address = os.environ.get("RAY_ADDRESS", "local://")
+        #ray.init(address=ray_address, ignore_reinit_error=True, runtime_env=runtime_env)
+        ray.init(ignore_reinit_error=True, runtime_env=runtime_env)
 
     # Build Ray Data config if enabled, auto-detecting cluster resources
     ray_data_config = None

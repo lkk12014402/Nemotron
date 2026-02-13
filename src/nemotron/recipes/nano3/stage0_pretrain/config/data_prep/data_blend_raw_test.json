@@ -1,0 +1,68 @@
+{
+    "datasets": [
+      {
+        "name": "nemotron-math-3",
+        "path": "hf://nvidia/Nemotron-CC-Math-v1",
+        "subset": "3",
+        "text_field": "text",
+        "weight": 1.0
+      },
+      {
+        "name": "nemotron-math-4plus",
+        "path": "hf://nvidia/Nemotron-CC-Math-v1",
+        "subset": "4plus",
+        "text_field": "text",
+        "weight": 1.0
+      },
+      {
+        "name": "nemotron-math-4plus-mind",
+        "path": "hf://nvidia/Nemotron-CC-Math-v1",
+        "subset": "4plus_MIND",
+        "text_field": "text",
+        "weight": 1.0
+      },
+      {
+        "name": "nemotron-pretraining-infinibyte-reasoning",
+        "path": "hf://nvidia/Nemotron-Pretraining-Specialized-v1",
+        "subset": "Nemotron-Pretraining-InfiniByte-Reasoning",
+        "text_field": "text",
+        "weight": 1.0
+      },
+      {
+        "name": "nemotron-pretraining-math-textbooks",
+        "path": "hf://nvidia/Nemotron-Pretraining-Specialized-v1",
+        "subset": "Nemotron-Pretraining-Math-Textbooks",
+        "text_field": "text",
+        "weight": 1.0
+      },
+      {
+        "name": "nemotron-pretraining-rqa",
+        "path": "hf://nvidia/Nemotron-Pretraining-Specialized-v1",
+        "subset": "Nemotron-Pretraining-RQA",
+        "text_field": "text",
+        "weight": 1.0
+      },
+      {
+        "name": "nemotron-pretraining-stem-sft",
+        "path": "hf://nvidia/Nemotron-Pretraining-Specialized-v1",
+        "subset": "Nemotron-Pretraining-STEM-SFT",
+        "text_field": "text",
+        "weight": 1.0
+      },
+      {
+        "name": "nemotron-pretraining-scientific-coding",
+        "path": "hf://nvidia/Nemotron-Pretraining-Specialized-v1",
+        "subset": "Nemotron-Pretraining-Scientific-Coding",
+        "text_field": "text",
+        "weight": 1.0
+      },
+      {
+        "name": "nemotron-pretraining-wiki-rewrite",
+        "path": "hf://nvidia/Nemotron-Pretraining-Specialized-v1",
+        "subset": "Nemotron-Pretraining-Wiki-Rewrite",
+        "text_field": "text",
+        "weight": 1.0
+      }
+    ]
+  }
+  

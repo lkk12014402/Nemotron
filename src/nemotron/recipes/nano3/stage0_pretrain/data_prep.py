@@ -162,6 +162,8 @@ def run_data_prep_main(cfg: PreTrainDataPrepConfig) -> PretrainBlendsArtifact:
     sample_suffix = f"?sample={cfg.sample}" if cfg.sample else ""
     artifact_name = f"nano3/{cfg.config_name}/data{sample_suffix}"
 
+    print(cfg)
+
     data_prep_config = DataPrepConfig(
         blend_path=cfg.blend_path,
         output_dir=cfg.output_dir,
