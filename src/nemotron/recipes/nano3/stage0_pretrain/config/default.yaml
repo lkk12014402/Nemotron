@@ -1,17 +1,31 @@
-run:
-  data: PretrainBlendsArtifact-tiny:latest
-  env:
-    container: nvcr.io/nvidia/nemo:25.11.nemotron_3_nano
 
 recipe:
   _target_: megatron.bridge.recipes.nemotronh.nemotron_3_nano.nemotron_3_nano_pretrain_config
-  per_split_data_args_path: ${art:data,path}/blend.json
+  per_split_data_args_path: /storage/lkk/nano_stage0_pretrain_data/sample-2000000/blend.json
+  #per_split_data_args_path: output/stage0_pretrain_tiny/sample-5000/blend.json
+
+train:
+  train_iters: 30000
+  global_batch_size: 32
+  #seq_length: 4096
+  micro_batch_size: 2
+
+model:
+  pipeline_model_parallel_size: 1
+  tensor_model_parallel_size: 4
+  expert_model_parallel_size: 4
+  # sequence_parallelism: false
+  vocab_size: 131072
+
+scheduler:
+  lr_warmup_iters: 10
 
 logger:
-  log_interval: 10
-  wandb_project: ${run.wandb.project}   # Set from env.toml [wandb]
-  wandb_entity: ${run.wandb.entity}     # Set from env.toml [wandb]
+  log_interval: 1
+  wandb_project: nemotron   # Set from env.toml [wandb]
+  wandb_entity: like_learning     # Set from env.toml [wandb]
 
 checkpoint:
-  save: /nemo_run/pretrain
-  save_interval: 20
+  save: /storage/lkk/pretrain_test
+  save_interval: 10000
+

@@ -12,13 +12,18 @@ run:
 #   PWD: Current working directory (for path resolution)
 
 # Path to data blend JSON file
-blend_path: ${oc.env:PWD}/src/nemotron/recipes/nano3/stage0_pretrain/config/data_prep/data_blend_raw.json
+#blend_path: ${oc.env:PWD}/src/nemotron/recipes/nano3/stage0_pretrain/config/data_prep/data_blend_raw.json
 
 # Output directory for tokenized data (outputs to job directory for persistence)
-output_dir: ${oc.env:PWD}/../output/stage0_pretrain
+#output_dir: ${oc.env:PWD}/../output/stage0_pretrain
+
+blend_path: ${oc.env:PWD}/config/data_prep/data_blend_raw.json
+
+# Output directory for tokenized data (outputs to job directory for persistence)
+output_dir: /storage/lkk/nano_stage0_pretrain_data_qwen3
 
 # Number of output shards for parallel loading
-num_shards: 128
+num_shards: 64
 
 # Number of shards for validation split
 valid_shards: 1
@@ -27,7 +32,8 @@ valid_shards: 1
 test_shards: 1
 
 # HuggingFace tokenizer model name
-tokenizer_model: nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-Base-BF16
+#tokenizer_model: nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-Base-BF16
+tokenizer_model: Qwen/Qwen3-8B
 
 # Prepend BOS token to documents
 add_bos: false
@@ -44,8 +50,10 @@ min_doc_chars: null
 # Truncate documents longer than this (null = no limit)
 max_doc_tokens: null
 
+ray_data_max_actors: 64
+
 # Limit rows per dataset for quick tests (null = no limit)
-sample: null
+sample: 5000000
 
 # Ray actors for parallel processing (null = auto)
 num_actors: null
